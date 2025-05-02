@@ -57,4 +57,34 @@ public class MessageService {
         return messageDAO.getMessageById(id);
     }
 
+    /**
+     * TODO: Use the MessageDAO to delete a specified message.
+     *
+     * @return specific message
+     */
+    public Message deleteMessage(int id) { 
+        return messageDAO.deleteMessage(id);
+    }
+
+    /**
+     * TODO: Use MessageDAO to udpate a message
+     * 
+     * @param Message the message
+     * @return the updated message if successfull
+     */
+    public Message updateMessage(Message updatedMessage)
+    {
+        messageDAO.updateMessage(updatedMessage);
+        return messageDAO.getMessageById(updatedMessage.getMessage_id());
+    }
+
+    /**
+     * TODO: Use the MessageDAO to retrieve a specified message.
+     *
+     * @return specific message
+     */
+    public List<Message> getAllMessagesById(int id) { 
+        return messageDAO.getAllMessagesById(id);
+    }
+
 }

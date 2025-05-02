@@ -103,4 +103,75 @@ public class MessageDAO {
         }
         return null;
     }
+
+    /**
+     * TODO: delete a message by given ID.
+     * @return all messages.
+     */
+    public Message deleteMessage(int id){
+        Message message = getMessageById(id);
+        if(message == null)
+        {
+            return null;
+        }
+        Connection connection = ConnectionUtil.getConnection();
+        try {
+            String sql = "DELETE FROM message WHERE message_id = ?;";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
+
+            return message;
+        } catch(SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return null;
+    }
+
+    /**
+     * TODO: update a message.
+     * message_text should not be blank, and must be under 255 characters
+     * posted_by refers to a real person, message gets updated in message table.
+     */
+    public void updateMessage(Message updatedMessage){
+        Connection connection = ConnectionUtil.getConnection();
+        try {
+            String sql = "UPDATE message SET message_text = ? WHERE message_id = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+            preparedStatement.setString(1, updatedMessage.getMessage_text());
+            preparedStatement.setInt(2, updatedMessage.getMessage_id());
+            
+            preparedStatement.executeUpdate();
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+    }
+
+    /**
+     * TODO: retrieve all messages from the specified account id.
+     * @return all account id messages.
+     */
+    public List<Message> getAllMessagesById(int id){
+        Connection connection = ConnectionUtil.getConnection();
+        List<Message> messages = new ArrayList<>();
+        try {
+            String sql = "SELECT * FROM message WHERE message_id = ?;";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setInt(1, id);
+
+            ResultSet rs = preparedStatement.executeQuery();
+            if (rs.next()) {
+                int mess_id = rs.getInt("message_id");
+                int post_id = rs.getInt("posted_by");
+                String text = rs.getString("message_text");
+                Long epoch = rs.getLong("time_posted_epoch");
+                Message message = new Message(mess_id, post_id, text, epoch);
+                messages.add(message);
+            }
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+        return messages;
+    }
 }
