@@ -75,14 +75,6 @@ User login
 POST /login
 ```
 
-Request Body:
-```bash
-{
-  "username": "user123",
-  "password": "pass1234"
-}
-```
-
 Create a new message
 ```bash
 POST /messages
