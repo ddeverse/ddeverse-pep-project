@@ -44,8 +44,8 @@ The project was designed following a **three-layer architecture** pattern (Contr
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-username/social-media-blog-api.git
-   cd social-media-blog-api
+   git clone https://github.com/ddeverse/ddeverse-pep-project.git
+   cd ddeverse-pep-project
    ```
    
 2. **Build the project:**
