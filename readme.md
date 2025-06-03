@@ -54,7 +54,7 @@ The project was designed following a **three-layer architecture** pattern (Contr
    ```
    
 3. **Run the application:**
-   Launch the `Main.java` file. The server will start on `http://localhost:8080`>.
+   Launch the `Main.java` file. The server will start on `http://localhost:8080`.
    
 4. **Database setup:**
    The `ConnectionUtil` class automatically runs the `schema.sql` script located in `src/main/resources` to initialize the schema.
