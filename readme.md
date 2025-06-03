@@ -34,7 +34,7 @@ The project was designed following a **three-layer architecture** pattern (Contr
 
 ## 🧱 Project Architecture
 
-The full documentation of the system architecture—including the controller, service, and DAO layers, request/response flow, and data model—is available in the [Project Wiki](https://github.com/ddeverse/ddeverse-pep-project/wiki/Project-Architecture).
+The full documentation of the system architecture—including the controller, service, and DAO layers, request/response flow, and data model—is available in the [Project Wiki](https://github.com/ddeverse/ddeverse-pep-project/wiki/Project%E2%80%90Architecture).
 
 ---
 
