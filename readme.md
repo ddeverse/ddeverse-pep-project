@@ -63,7 +63,7 @@ The full documentation of the system architecture—including the controller, se
    Launch the `Main.java` file. The server will start on `http://localhost:8080`.
    
 4. **Database setup:**
-   The `ConnectionUtil` class automatically runs the `schema.sql` script located in `src/main/resources` to initialize the schema.
+   The `ConnectionUtil` class automatically runs the `SocialMedia.sql` script located in `src/main/resources` to initialize the schema.
    
 ---
 
